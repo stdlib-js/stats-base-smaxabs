@@ -1,0 +1,44 @@
+{
+  "name": "@stdlib/stats-base-smaxabs",
+  "version": "0.0.0",
+  "description": "Calculate the maximum absolute value of a single-precision floating-point strided array.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./mod.js",
+  "homepage": "https://stdlib.io",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/stats-base-smaxabs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "keywords": [
+    "stdlib",
+    "stdmath",
+    "statistics",
+    "stats",
+    "mathematics",
+    "math",
+    "maximum",
+    "max",
+    "absolute",
+    "abs",
+    "range",
+    "extremes",
+    "domain",
+    "extent",
+    "strided",
+    "strided array",
+    "typed",
+    "array",
+    "float32",
+    "single",
+    "float",
+    "float32array"
+  ],
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/athan"
+  }
+}
