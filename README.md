@@ -41,38 +41,32 @@ limitations under the License.
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/stats-base-smaxabs
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-smaxabs = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-smaxabs@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var smaxabs = require( 'path/to/vendor/umd/stats-base-smaxabs/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-smaxabs@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.smaxabs;
-})();
-</script>
+var smaxabs = require( '@stdlib/stats-base-smaxabs' );
 ```
 
 #### smaxabs( N, x, stride )
@@ -176,16 +170,11 @@ var v = smaxabs.ndarray( N, x, 2, 1 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-smaxabs@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var randu = require( '@stdlib/random-base-randu' );
+var round = require( '@stdlib/math-base-special-round' );
+var Float32Array = require( '@stdlib/array-float32' );
+var smaxabs = require( '@stdlib/stats-base-smaxabs' );
 
 var x;
 var i;
@@ -198,11 +187,6 @@ console.log( x );
 
 var v = smaxabs( x.length, x, 1 );
 console.log( v );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -290,27 +274,30 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 [es-module]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
 
 [deno-url]: https://github.com/stdlib-js/stats-base-smaxabs/tree/deno
+[deno-readme]: https://github.com/stdlib-js/stats-base-smaxabs/blob/deno/README.md
 [umd-url]: https://github.com/stdlib-js/stats-base-smaxabs/tree/umd
+[umd-readme]: https://github.com/stdlib-js/stats-base-smaxabs/blob/umd/README.md
 [esm-url]: https://github.com/stdlib-js/stats-base-smaxabs/tree/esm
+[esm-readme]: https://github.com/stdlib-js/stats-base-smaxabs/blob/esm/README.md
 [branches-url]: https://github.com/stdlib-js/stats-base-smaxabs/blob/main/branches.md
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/stats-base-smaxabs/main/LICENSE
 
-[@stdlib/array/float32]: https://github.com/stdlib-js/array-float32/tree/umd
+[@stdlib/array/float32]: https://github.com/stdlib-js/array-float32
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 <!-- <related-links> -->
 
-[@stdlib/stats/base/dmaxabs]: https://github.com/stdlib-js/stats-base-dmaxabs/tree/umd
+[@stdlib/stats/base/dmaxabs]: https://github.com/stdlib-js/stats-base-dmaxabs
 
-[@stdlib/stats/base/maxabs]: https://github.com/stdlib-js/stats-base-maxabs/tree/umd
+[@stdlib/stats/base/maxabs]: https://github.com/stdlib-js/stats-base-maxabs
 
-[@stdlib/stats/base/smax]: https://github.com/stdlib-js/stats-base-smax/tree/umd
+[@stdlib/stats/base/smax]: https://github.com/stdlib-js/stats-base-smax
 
-[@stdlib/stats/base/sminabs]: https://github.com/stdlib-js/stats-base-sminabs/tree/umd
+[@stdlib/stats/base/sminabs]: https://github.com/stdlib-js/stats-base-sminabs
 
-[@stdlib/stats/base/snanmaxabs]: https://github.com/stdlib-js/stats-base-snanmaxabs/tree/umd
+[@stdlib/stats/base/snanmaxabs]: https://github.com/stdlib-js/stats-base-snanmaxabs
 
 <!-- </related-links> -->
 
