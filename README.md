@@ -48,7 +48,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import smaxabs from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-smaxabs@deno/mod.js';
+import smaxabs from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-smaxabs@v0.2.1-deno/mod.js';
 ```
 
 #### smaxabs( N, x, stride )
@@ -156,7 +156,7 @@ var v = smaxabs.ndarray( N, x, 2, 1 );
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@deno/mod.js';
 import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@deno/mod.js';
 import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@deno/mod.js';
-import smaxabs from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-smaxabs@deno/mod.js';
+import smaxabs from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-smaxabs@v0.2.1-deno/mod.js';
 
 var x;
 var i;
