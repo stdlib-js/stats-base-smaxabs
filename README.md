@@ -41,38 +41,32 @@ limitations under the License.
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/stats-base-smaxabs
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-smaxabs = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-smaxabs@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var smaxabs = require( 'path/to/vendor/umd/stats-base-smaxabs/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-smaxabs@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.smaxabs;
-})();
-</script>
+var smaxabs = require( '@stdlib/stats-base-smaxabs' );
 ```
 
 #### smaxabs( N, x, strideX )
@@ -167,13 +161,8 @@ var v = smaxabs.ndarray( 4, x, 2, 1 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
 
 var smaxabs = require( '@stdlib/stats-base-smaxabs' );
 
@@ -184,11 +173,6 @@ console.log( x );
 
 var v = smaxabs( x.length, x, 1 );
 console.log( v );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -197,7 +181,120 @@ console.log( v );
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/stats/base/smaxabs.h"
+```
+
+#### stdlib_strided_smaxabs( N, \*X, strideX )
+
+Computes the maximum absolute value of a single-precision floating-point strided array.
+
+```c
+const float x[] = { 1.0f, -2.0f, 3.0f, -4.0f };
+
+float v = stdlib_strided_smaxabs( 4, x, 1 );
+// returns 4.0f
+```
+
+The function accepts the following arguments:
+
+-   **N**: `[in] CBLAS_INT` number of indexed elements.
+-   **X**: `[in] float*` input array.
+-   **strideX**: `[in] CBLAS_INT` stride length for `X`.
+
+```c
+float stdlib_strided_smaxabs( const CBLAS_INT N, const float *X, const CBLAS_INT strideX );
+```
+
+#### stdlib_strided_smaxabs_ndarray( N, \*X, strideX, offsetX )
+
+Computes the maximum absolute value of a single-precision floating-point strided array using alternative indexing semantics.
+
+```c
+const float x[] = { 1.0f, -2.0f, 3.0f, -4.0f };
+
+float v = stdlib_strided_smaxabs_ndarray( 4, x, 1, 0 );
+// returns 4.0f
+```
+
+The function accepts the following arguments:
+
+-   **N**: `[in] CBLAS_INT` number of indexed elements.
+-   **X**: `[in] float*` input array.
+-   **strideX**: `[in] CBLAS_INT` stride length for `X`.
+-   **offsetX**: `[in] CBLAS_INT` starting index for `X`.
+
+```c
+float stdlib_strided_smaxabs_ndarray( const CBLAS_INT N, const float *X, const CBLAS_INT strideX, const CBLAS_INT offsetX );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/stats/base/smaxabs.h"
+#include <stdio.h>
+
+int main( void ) {
+    // Create a strided array:
+    const float x[] = { 1.0f, -2.0f, -3.0f, 4.0f, -5.0f, -6.0f, 7.0f, 8.0f };
+
+    // Specify the number of elements:
+    const int N = 4;
+
+    // Specify the stride length:
+    const int strideX = 2;
+
+    // Compute the maximum absolute value:
+    float v = stdlib_strided_smaxabs( N, x, strideX );
+
+    // Print the result:
+    printf( "maxabs: %f\n", v );
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -207,7 +304,7 @@ console.log( v );
 
 ## See Also
 
--   <span class="package-name">[`@stdlib/stats-base/dmaxabs`][@stdlib/stats/base/dmaxabs]</span><span class="delimiter">: </span><span class="description">calculate the maximum absolute value of a double-precision floating-point strided array.</span>
+-   <span class="package-name">[`@stdlib/stats-strided/dmaxabs`][@stdlib/stats/strided/dmaxabs]</span><span class="delimiter">: </span><span class="description">calculate the maximum absolute value of a double-precision floating-point strided array.</span>
 -   <span class="package-name">[`@stdlib/stats-base/maxabs`][@stdlib/stats/base/maxabs]</span><span class="delimiter">: </span><span class="description">calculate the maximum absolute value of a strided array.</span>
 -   <span class="package-name">[`@stdlib/stats-base/smax`][@stdlib/stats/base/smax]</span><span class="delimiter">: </span><span class="description">calculate the maximum value of a single-precision floating-point strided array.</span>
 -   <span class="package-name">[`@stdlib/stats-base/sminabs`][@stdlib/stats/base/sminabs]</span><span class="delimiter">: </span><span class="description">calculate the minimum absolute value of a single-precision floating-point strided array.</span>
@@ -289,21 +386,21 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/stats-base-smaxabs/main/LICENSE
 
-[@stdlib/array/float32]: https://github.com/stdlib-js/array-float32/tree/umd
+[@stdlib/array/float32]: https://github.com/stdlib-js/array-float32
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 <!-- <related-links> -->
 
-[@stdlib/stats/base/dmaxabs]: https://github.com/stdlib-js/stats-base-dmaxabs/tree/umd
+[@stdlib/stats/strided/dmaxabs]: https://github.com/stdlib-js/stats-strided-dmaxabs
 
-[@stdlib/stats/base/maxabs]: https://github.com/stdlib-js/stats-base-maxabs/tree/umd
+[@stdlib/stats/base/maxabs]: https://github.com/stdlib-js/stats-base-maxabs
 
-[@stdlib/stats/base/smax]: https://github.com/stdlib-js/stats-base-smax/tree/umd
+[@stdlib/stats/base/smax]: https://github.com/stdlib-js/stats-base-smax
 
-[@stdlib/stats/base/sminabs]: https://github.com/stdlib-js/stats-base-sminabs/tree/umd
+[@stdlib/stats/base/sminabs]: https://github.com/stdlib-js/stats-base-sminabs
 
-[@stdlib/stats/base/snanmaxabs]: https://github.com/stdlib-js/stats-base-snanmaxabs/tree/umd
+[@stdlib/stats/base/snanmaxabs]: https://github.com/stdlib-js/stats-base-snanmaxabs
 
 <!-- </related-links> -->
 
